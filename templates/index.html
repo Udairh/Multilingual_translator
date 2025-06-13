@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🌍 Multilingual Translator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+  <h1>🌐 Universal Translator</h1>
+
+  <form method="POST" enctype="multipart/form-data" class="translate-form">
+    {{ form.hidden_tag() }}
+
+    <label for="text">Enter Text:</label>
+    {{ form.text(rows=6, cols=80, placeholder="Type or paste your text here...") }}<br><br>
+
+    <label for="file">📁 Or upload a .txt file:</label><br>
+    {{ form.file }}<br><br>
+
+    <label for="target_lang">🌐 Target Language:</label><br>
+    {{ form.target_lang }}
+    <br><br>
+
+    {{ form.submit }}
+  </form>
+
+  {% if lang %}
+  <div class="detected-lang">
+    🔍 Detected Language: <span>{{ lang }}</span>
+  </div>
+  {% endif %}
+
+  {% if translation %}
+  <div class="translation-box">
+    <h2>📝 Translation:</h2>
+    <p>{{ translation }}</p>
+    <a href="{{ url_for('download_translation', text=translation) }}" class="btn-download">⬇️ Download as .txt</a>
+    <a href="{{ url_for('speak_translation', text=translation) }}" class="btn-speak">🔊 Listen to Translation</a>
+  </div>
+  {% endif %}
+
+  <hr>
+
+  <h2>🕒 Translation History</h2>
+  <div class="history-panel">
+    {% if history %}
+      <ul>
+        {% for item in history %}
+          <li>
+            <strong>[{{ item.detected_lang }} → {{ item.target_lang }}]</strong>: "{{ item.translated }}"
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No translations yet.</p>
+    {% endif %}
+  </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

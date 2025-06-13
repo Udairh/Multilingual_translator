@@ -1,0 +1,10 @@
+flask
+transformers
+torch
+sentencepiece
+langdetect
+flask-wtf
+flask-session
+python-dotenv
+gtts
+streamlit

@@ -1,0 +1,174 @@
+/* Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom right, #f0f4f8, #e9ecef);
+  padding: 40px 20px;
+  color: #333;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header */
+h1 {
+  text-align: center;
+  color: #007BFF;
+  margin-bottom: 30px;
+}
+
+/* Form Styling */
+.translate-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: vertical;
+  transition: border-color 0.3s;
+}
+
+textarea:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+select {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+button[type="submit"] {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Detected Language Box */
+.detected-lang {
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #d1ecf1;
+  border-left: 5px solid #007BFF;
+  border-radius: 5px;
+  font-weight: bold;
+  animation: slideIn 0.5s ease-in-out;
+}
+
+.detected-lang span {
+  color: #007BFF;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Translation Output */
+.translation-box {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #fff3cd;
+  border-left: 5px solid #ffc107;
+  border-radius: 5px;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.translation-box p {
+  margin-top: 10px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.btn-download,
+.btn-speak {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+.btn-download {
+  background-color: #28a745;
+  color: white;
+}
+
+.btn-download:hover {
+  background-color: #218838;
+}
+
+.btn-speak {
+  background-color: #ffc107;
+  color: black;
+}
+
+.btn-speak:hover {
+  background-color: #e0a800;
+}
+
+/* History Panel */
+.history-panel {
+  margin-top: 20px;
+  max-height: 300px;
+  overflow-y: auto;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 14px;
+}
+
+.history-panel ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.history-panel li {
+  background-color: #e9ecef;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+}
+
+.history-panel li:hover {
+  transform: scale(1.02);
+  background-color: #dee2e6;
+}
